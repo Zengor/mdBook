@@ -5,8 +5,8 @@ You could repeatedly issue `mdbook build` every time a file is changed. But usin
 
 #### Specify a directory
 
-Like `init` and `build`, `watch` can take a directory as argument to use instead of the
-current working directory.
+Like `init` and `build`, `watch` can take a directory as an argument to use
+instead of the current working directory.
 
 ```bash
 mdbook watch path/to/book
@@ -23,4 +23,4 @@ The `--dest-dir` (`-d`) option allows you to change the output directory for you
 
 -----
 
-***note:*** *the `watch` command has not gotten a lot of testing yet, there could be some rough edges. If you discover a problem, please report it [on Github](https://github.com/azerupi/mdBook/issues)*
+***note:*** *the `watch` command has not gotten a lot of testing yet, there could be some rough edges. If you discover a problem, please report it [on Github](https://github.com/rust-lang-nursery/mdBook/issues)*

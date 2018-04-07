@@ -1,25 +1,19 @@
 @require 'variables'
 
 .page-wrapper {
-    padding-left: $sidebar-width
     box-sizing: border-box
-
-    min-height: 100%
+    left: 0
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
 
     // Animation: slide away
-    transition: padding-left 0.5s
-
-    @media only screen and (max-width: $max-page-width-with-hidden-sidebar) {
-        padding-left: 0
-    }
-}
-
-.sidebar-hidden .page-wrapper {
-    padding-left: 0
+    transition: padding-left 0.5s, margin-left 0.5s, left 0.5s
 }
 
 .sidebar-visible .page-wrapper {
-    padding-left: $sidebar-width
+    left: $sidebar-width
 }
 
 .page {
@@ -28,10 +22,20 @@
 }
 
 .content {
-    margin-left: auto
-    margin-right:auto
-    max-width: 750px
+    position: relative
+    top: 0
+    bottom: 0
+    overflow-y: auto
+    right: 0
+    left: 0
+    padding: 0 15px
     padding-bottom: 50px
+
+    main {
+        margin-left: auto
+        margin-right: auto
+        max-width: $content-max-width
+    }
 
     a {
         text-decoration: none;
@@ -39,4 +43,9 @@
     }
 
     img { max-width: 100%; }
+}
+
+.sidebar-visible .content {
+    position: absolute
+    top: 52px
 }

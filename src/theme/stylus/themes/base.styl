@@ -12,9 +12,34 @@
         }
     }
 
+    .menu-bar {
+        margin: auto (- $page-padding);
+
+        & > #menu-bar-sticky-container {
+            background-color: $bg
+            border-bottom-color: $bg
+            border-bottom-width: 1px
+            border-bottom-style: solid
+        }
+
+        &.bordered > #menu-bar-sticky-container  {
+            border-bottom-color: $table-border-color
+        }
+    }
+
+    $table-border-color
+
     .sidebar {
         background-color: $sidebar-bg
         color: $sidebar-fg
+
+        &::-webkit-scrollbar {
+            background: $sidebar-bg;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $scrollbar;
+        }
     }
 
     .chapter li {
@@ -39,11 +64,13 @@
     .nav-chapters:visited,
     .mobile-nav-chapters,
     .mobile-nav-chapters:visited,
+    .menu-bar .icon-button,
     .menu-bar a i {
         color: $icons
     }
 
     .menu-bar i:hover,
+    .menu-bar .icon-button:hover,
     .nav-chapters:hover,
     .mobile-nav-chapters i:hover {
         color: $icons-hover
@@ -57,7 +84,10 @@
         background-color: $sidebar-bg
     }
 
-    .content a:link, a:visited, a > .hljs {
+    #searchresults a,
+    .content a:link,
+    a:visited,
+    a > .hljs {
         color: $links
     }
 
@@ -65,6 +95,10 @@
         color: $fg
         background: $theme-popup-bg
         border: 1px solid $theme-popup-border
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: none;
 
         .theme:hover { background-color: $theme-hover }
 
@@ -127,9 +161,62 @@
 
             :hover { color: $sidebar-active; }
             i { margin-left: 8px; }
+            button {
+                color: inherit;
+                background: transparent;
+                border: none;
+                cursor: inherit;
+            }
         }
 
         & > .result { margin-top: 10px; }
 
+    }
+
+    .icon-button {
+        border: none;
+        background: none;
+        padding: 0;
+        color: inherit;
+
+        i {
+            margin: 0;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        background: $bg;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $scrollbar;
+    }
+
+    /* Search */
+    #searchbar {
+        border: 1px solid $searchbar-border-color;
+        border-radius: 3px;
+        background-color: $searchbar-bg;
+        color: $searchbar-fg
+
+        &:focus, &.active {
+            box-shadow: 0 0 3px $searchbar-shadow-color;
+        }
+    }
+
+    .searchresults-header {
+        color: $searchresults-header-fg;
+    }
+
+    .searchresults-outer {
+        border-bottom: 1px dashed $searchresults-border-color;
+    }
+
+    ul#searchresults li.focus {
+        background-color: $searchresults-li-bg;
+    }
+
+    mark {
+        background-color: $search-mark-bg;
     }
 }

@@ -1,8 +1,16 @@
-.menu-bar {
-    position: relative
-    height: 50px
+#menu-bar {
+    position: -webkit-sticky
+    position: sticky
+    top: 0
+    z-index: 101
 
-    i {
+    & > #menu-bar-sticky-container {
+        display: flex
+        flex-wrap: wrap
+        transition: transform 0.5s, border-bottom-color 0.5s
+    }
+
+    i, .icon-button {
         position: relative
         margin: 0 10px
         z-index: 10
@@ -12,9 +20,11 @@
 
         &:hover { cursor: pointer }
     }
+}
 
-    .left-buttons { float: left }
-    .right-buttons { float: right }
+
+html:not(.sidebar-visible) #menu-bar:not(:hover).folded > #menu-bar-sticky-container  {
+    transform: translateY(-60px);
 }
 
 .menu-title {
@@ -22,18 +32,11 @@
     font-weight: 200
     font-size: 20px
     line-height: 50px
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
     text-align: center
     margin: 0
-
-    opacity: 0
-    transition: opacity 0.5s ease-in-out
-}
-
-.menu-bar:hover .menu-title {
-    opacity: 1
+    flex: 1
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    cursor: pointer;
 }
